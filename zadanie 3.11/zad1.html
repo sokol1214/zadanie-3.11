@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #5b86e5;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 250px;
+            padding: 15px;
+            margin: 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            background: white;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="pole" class="button">Oblicz pole koła</button>
+        <button id="imie" class="button">Wprowadź imię</button>
+        <button id="kolor" class="button">Zmień kolor tła</button>
+    </div>
+
+    <script>
+        document.getElementById('pole').addEventListener('click', function() {
+            const r = prompt('Podaj promień koła:');
+            if (r !== null && !isNaN(r)) {
+                const area = Math.PI * Math.pow(parseFloat(r), 2);
+                alert(`Pole koła wynosi: ${area.toFixed(2)}`);
+            }
+        });
+
+        document.getElementById('imie').addEventListener('click', function() {
+            const name = prompt('Podaj swoje imię:');
+            if (name) {
+                alert(`Witaj ${name}!`);
+            }
+        });
+
+        document.getElementById('kolor').addEventListener('click', function() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>
